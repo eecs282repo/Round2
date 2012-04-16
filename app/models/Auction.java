@@ -17,14 +17,13 @@ public class Auction extends Model{
 	
 	@ManyToMany
 	public List<Tag> tags;
-	
 
 	@Required
 	@MaxSize(500)
 	public String description;
 	
 
-	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.PERSIST})
+	@ManyToOne
 	public Item item;
 	
 	

@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Cascade;
 
@@ -14,6 +15,9 @@ import play.db.jpa.Model;
 @Entity
 public class Item extends Model{
 	public String name;
+	
+	// @OneToMany(mappedBy="item", cascade=CascadeType.ALL, orphanRemoval=false)
+	// public List<Auction> auctions;
 	
 	@ManyToMany
 	public List<AssocWord> associated_word;
