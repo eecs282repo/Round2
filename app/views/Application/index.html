@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+
+<p>Our selection of auctions</p>
+
+<ul>
+#{list auctions}
+<li>${_.name} - ${_.description} </li>
+#{/list}
+</ul>
+
+
+
+
+<!-- <form> 
+	<input name="tweet" type="text" />
+	<input type="submit" value="Tweet" /> 
+</form>
+Latest Tweets List
+<ul> 
+#{list tweets}
+<li>${_.tweet} (${_.createDate.since()})</li>
+<p><p>
+#{/list}
+
+</ul>
+ -->
+
+<!-- JS -->
