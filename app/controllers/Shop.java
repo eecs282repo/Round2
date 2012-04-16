@@ -4,7 +4,8 @@ import java.util.List;
 
 import models.Auction;
 import models.Bid;
-//import models.Tag;
+import models.Item;
+import models.Tag;
 import play.mvc.Controller;
 
 /**
@@ -13,10 +14,14 @@ import play.mvc.Controller;
  *
  */
 public class Shop extends Controller {
+	
 	public static void index() {
-		render();
+		renderJSON(Item.findAll());
 	}
 	
+	public static void itemSearch() {
+		render();
+	}
 	/**
 	 * Creates an auction
 	 */
@@ -46,19 +51,20 @@ public class Shop extends Controller {
 	/**
 	 * Searches for an item
 	 */
-	public static void searchItem() {
+	public static void searchItem(String q) {
 		// TODO: Renders the search result
-		render();
+		List<Item> items = Item.find("lower(name) like ?", '%' + q.toLowerCase() + '%').fetch();
+		render(items);
 	}
 	
 	/**
 	 * Search for category based on input string, SQL "WHERE category.name LIKE searchString"
 	 */
-//	public static void searchTag(String q) {
-//		List<Tag> categories = Tag.findByString(q);
-//		render(categories);
-//	}
-//	
+	public static void searchTag(String itemName) {
+		List<Tag> categories = Tag.findByString(itemName);
+		render(categories);
+	}
+	
 	/**
 	 * Renders a list of the most popular categories
 	 */

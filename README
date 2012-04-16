@@ -1,0 +1,11 @@
+Website for EECS 282
+
+Path shown below
+
+Type "play run" to run server
+
+CRUD
+localhost:9000/admin
+
+Item search
+localhost:9000/itemSearch

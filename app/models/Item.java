@@ -2,8 +2,12 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.Cascade;
 
 import play.db.jpa.Model;
 
@@ -16,6 +20,10 @@ public class Item extends Model{
 	
 	public double average_price;
 	
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.ALL})
 	public List<Tag> categories;
+	
+	public String toString(){
+		return name;
+	}
 }

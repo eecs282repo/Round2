@@ -24,7 +24,7 @@ public class Auction extends Model{
 	public String description;
 	
 
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.PERSIST})
 	public Item item;
 	
 	

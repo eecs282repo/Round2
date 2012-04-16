@@ -2,7 +2,9 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 
 import play.data.validation.Required;
@@ -15,10 +17,10 @@ public class Tag extends Model implements Comparable<Tag> {
 	
 	public int item_count;
 	
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	public List<Item> items;
 	
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	public List<AssocWord> associated_words;
 	
 	public String toString(){

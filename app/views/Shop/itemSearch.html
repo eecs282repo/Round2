@@ -1,0 +1,67 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+Search for an item: 
+<form action="#/search" method="GET">
+<input onkeyup="lookup(this.value)" id="searchField"></input>
+
+</form>
+
+<div id="main">
+
+
+
+</div>
+
+<script>
+
+function lookup(inputString) {
+	if(inputString.length == 0) {
+		$('#suggestions').fadeOut(); // Hide the suggestions box
+	} else {
+		var action = #{jsAction @searchItem(':itemName') /}
+	   $('#main').load(
+	       action({itemName : inputString}), 
+	       function() {
+	           $('#main').css('visibility', 'visible')
+	       }
+	   );
+	}
+}
+
+(function($){
+
+
+
+	
+	var app = $.sammy('#main', function(){
+		
+		var thisApp = app;
+		
+		this.get('#/', function(callback) {
+			this.log("Started!");
+		});
+		
+		this.get('#/search', function(callback) {
+			this.log("Enter registered!");
+			var action = #{jsAction @searchItem(':itemName') /}
+			var name = $('#searchField').attr('value');
+			this.partial(action(name));
+			// var action = #{jsAction @searchItem(':itemName') /}
+			// var q = this.params['query'];			
+		});
+		
+
+	});
+	
+	$(function(){
+		app.run('#/');
+	});
+	
+	
+	
+})(jQuery);
+
+
+
+</script>

@@ -8,12 +8,18 @@
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/sammy.js'}" type="text/javascript" ></script>
         #{get 'moreScripts' /}
     </head>
     <body>
     <div>Welcome to <a href="/">A2 Exchange</a></div>
-    <p>Your best online market designed by Ann Arbor for Ann Arbor!</p>
+    <p>An online freemarket built by Ann Arbor! We juiced up our server to the max to make your experience enjoyable. Why? Because we are local, we can, and we care about fellow Ann Arborian.</p>
     <div>
+    <ul>
+    Menu
+    <li><a href="itemSearch">Item Search</a></li>
+    </ul>
+    <hr>
     </div>
         #{doLayout /}
     </body>
