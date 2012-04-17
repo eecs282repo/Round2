@@ -5,13 +5,17 @@
 <p>You are viewing <strong>${auction?.name}</strong>.</p>
 <p>${auction?.description}</p>
 
+<hr>
+
 <ul>
 #{list auction.bids}
 <li>${_.offer}</li>
 #{/list}
 </ul>
 
-#{form @Shop.createBid(auction.id)}
+<hr>
+
+#{form @Bids.createBid(auction.id)}
  
     #{ifErrors}
         <p class="error">

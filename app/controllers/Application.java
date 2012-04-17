@@ -21,6 +21,9 @@ package controllers;
 import java.util.List;
 
 import models.Auction;
+import models.Bid;
+import models.Tag;
+import play.data.validation.Required;
 import play.mvc.Controller;
 
 /**
@@ -35,38 +38,8 @@ public class Application extends Controller {
 	 */
 	public static void index() {
 		List<Auction> auctions = Auction.findLatest();
-		render(auctions);
-	}
-	
-	public static void getAuction(Long id){
-		Auction auction = Auction.findById(id);
-		render(auction);
+		List<Tag> tags = Tag.findPopular(20);
+		render(tags, auctions);
 	}
 
-	
-	
-	
-	// Below are the legacy functions from tutorial, for reference
-	/**
-	 * Creates the.
-	 * 
-	 * @param msg
-	 *            the msg
-	 */
-/*	public static void create(String msg) {
-		Tweet tweet = new Tweet();
-		tweet.tweet = msg;
-		tweet.save();
-		render(tweet);
-	}*/
-
-	
-	/**
-	 * Tweets.
-	 */
-/*	public static void tweets() {
-		List<Tweet> tweets = Tweet.findLatest();
-		renderJSON(tweets);
-	}*/
-	
 }

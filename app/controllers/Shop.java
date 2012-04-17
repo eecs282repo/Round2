@@ -23,33 +23,7 @@ public class Shop extends Controller {
 	public static void itemSearch() {
 		render();
 	}
-	/**
-	 * Creates an auction
-	 */
-	public static void createAuction() {
-		Auction auction = new Auction();
-		// TODO: Get the parameters
-		auction.save();
-		render(auction);
-	}
-	
-	/**
-	 * Creates a bid
-	 */
-	public static void createBid(Long auction_id, @Required double ammount) {
-		Auction auction = Auction.findById(auction_id);
-		if(validation.hasErrors()) {
-			Application.getAuction(auction_id);
-		}
-		Bid bid = new Bid();
-		bid.offer = ammount;
-		bid.auction = auction;
-		bid.save();
-		
-		auction.bids.add(bid);
-		auction.save();
-		Application.getAuction(auction_id);
-	}
+
 	
 	/**
 	 * Gets a list of recently entered queries from all users
@@ -76,17 +50,17 @@ public class Shop extends Controller {
 	/**
 	 * Search for category based on input string, SQL "WHERE category.name LIKE searchString"
 	 */
-	public static void searchTag(String itemName) {
-		List<Tag> categories = Tag.findByString(itemName);
-		render(categories);
-	}
+//	public static void searchTag(String itemName) {
+//		List<Tag> categories = Tag.findByString(itemName);
+//		render(categories);
+//	}
 	
 	/**
 	 * Renders a list of the most popular categories
 	 */
-	public static void getPopularCategories(){
-		render();
-	}
+//	public static void getPopularCategories(){
+//		render();
+//	}
 
 
 }

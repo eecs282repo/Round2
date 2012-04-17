@@ -2,6 +2,7 @@ package models;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -19,8 +20,8 @@ public class Auction extends Model{
 	@OneToMany(mappedBy="auction", cascade=CascadeType.ALL)
 	public List<Bid> bids;
 	
-	@ManyToMany
-	public List<Tag> tags;
+	@ManyToMany(mappedBy="auctions", cascade=CascadeType.ALL)
+	public Set<Tag> tags;
 
 	@MaxSize(500)
 	public String description;
@@ -32,7 +33,7 @@ public class Auction extends Model{
 	public Account account;
 
 	public String image;
-
+	
 	public static List<Auction> findLatest(){
 		return Auction.findAll();
 	}
@@ -41,7 +42,7 @@ public class Auction extends Model{
 
 	
 	@Required
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	public Date createDate = new Date();
 	
 	

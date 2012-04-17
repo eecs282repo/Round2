@@ -6,14 +6,17 @@
 GET     /                                       Application.index
 
 # Display auctions
-GET		/auction/{id}							Application.getAuction
+GET		/auction/{id}							Auctions.show
 
 # Shopping routes
-GET		/itemSearch								Shop.itemSearch
+GET		/search/items							Shop.itemSearch
 GET		/shop									Shop.index
 
-# Making a bid
-POST	/makeBid/{id}/{ammount}					Shop.createBid
+# Make a bid
+POST	/makeOffer/{id}/{ammount}				Bids.createBid
+
+# Make an auction
+GET		/create/auction							Auctions.form
 
 
 # Ignore favicon requests

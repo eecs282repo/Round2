@@ -1,29 +1,43 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<div class="row">
+<div class="span4">
+<h3>Popular Tags</h3>
+#{list tags}
+
+<a style="margin:5px"href="/" class="btn">
+<i class="icon-tag"></i>
+${_.name}
+</a>
+
+#{/list}
+</div>
 
 
-<p>Our selection of auctions</p>
 
+
+<div class="span8">
+<h3>Recent Auctions</h3>
 <ul>
 #{list auctions}
-<li><a href="@{Application.getAuction(_.id)}">${_.name} - ${_.description} </a></li>
+<li><a href="@{Auctions.show(_.id)}">${_.name} - ${_.description} </a></li>
 #{/list}
 </ul>
+</div>
 
-
-
-<!-- <form> 
-	<input name="tweet" type="text" />
-	<input type="submit" value="Tweet" /> 
-</form>
-Latest Tweets List
-<ul> 
-#{list tweets}
-<li>${_.tweet} (${_.createDate.since()})</li>
-<p><p>
-#{/list}
-
+<div class="span4">
+<h3>TODO</h3>
+<ul>
+<li>Make the category show up on the Make Auction page</li>
+<li>Filter the front page by categories</li>
+<li>Make the explore page</li>
 </ul>
- -->
+</div>
 
-<!-- JS -->
+</div> <!--  First row -->
+
+
+<div class="row">
+
+</div>
+
