@@ -18,7 +18,7 @@ public class Auctions extends CRUD {
 	 * Creates the individual auction page, for Views, see Application/getAuction.html
 	 * @param id
 	 */
-	public static void show(Long id) {
+	public static void view(Long id) {
 		Auction auction = Auction.findById(id);
 		render(auction);
 	}
@@ -50,7 +50,7 @@ public class Auctions extends CRUD {
 			mytag.save();
 		}
 		auction.save();
-		show(auction.id);
+		view(auction.id);
 	}
 
 }

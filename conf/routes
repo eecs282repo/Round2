@@ -5,8 +5,12 @@
 # Home page
 GET     /                                       Application.index
 
+
+# Crud
+*      /admin              module:crud
+
 # Display auctions
-GET		/auction/{id}							Auctions.show
+GET		/view/auction/{id}							Auctions.view
 
 # Shopping routes
 GET		/search/items							Shop.itemSearch
@@ -25,8 +29,6 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-# Crud
-*      /admin              module:crud
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

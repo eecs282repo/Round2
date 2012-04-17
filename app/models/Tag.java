@@ -21,7 +21,7 @@ public class Tag extends Model implements Comparable<Tag> {
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	public List<Item> items;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@ManyToMany(mappedBy="tags", cascade = CascadeType.PERSIST)
 	public List<Auction> auctions;
 	
 	public String toString(){

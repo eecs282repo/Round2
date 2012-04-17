@@ -11,7 +11,7 @@ public class Bids extends CRUD {
 	public static void createBid(Long auction_id, @Required double ammount) {
 		Auction auction = Auction.findById(auction_id);
 		if(validation.hasErrors()) {
-			Auctions.show(auction_id);
+			Auctions.view(auction_id);
 		}
 		Bid bid = new Bid();
 		bid.offer = ammount;
@@ -20,6 +20,6 @@ public class Bids extends CRUD {
 		
 		auction.bids.add(bid);
 		auction.save();
-		Auctions.show(auction_id);
+		Auctions.view(auction_id);
 	}
 }

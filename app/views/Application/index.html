@@ -20,7 +20,7 @@ ${_.name}
 <h3>Recent Auctions</h3>
 <ul>
 #{list auctions}
-<li><a href="@{Auctions.show(_.id)}">${_.name} - ${_.description} </a></li>
+<li><a href="@{Auctions.view(_.id)}">${_.name} - ${_.description} </a></li>
 #{/list}
 </ul>
 </div>

@@ -1,15 +1,25 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-
+#{list auction?.tags}
+	<a style="margin:5px"href="/" class="btn">
+	<i class="icon-tag"></i>
+	${_.name}
+	</a>
+#{/list}
+<p></p>
 <p>You are viewing <strong>${auction?.name}</strong>.</p>
-<p>${auction?.description}</p>
 
+
+
+<p>${auction?.description}</p>
+<p>Merchant asks for: $${auction?.price}</p>
 <hr>
 
+<p>Offers</p>
 <ul>
-#{list auction.bids}
-<li>${_.offer}</li>
+#{list auction?.bids}
+<li>$${_.offer}</li>
 #{/list}
 </ul>
 
@@ -23,8 +33,8 @@
         </p>
     #{/ifErrors}
     <p>
-        <label for="ammount">Make a offer: </label>
-        <input name="ammount" id="ammount"/>
+        <label for="ammount">Make an offer: </label>
+        $&nbsp;<input name="ammount" id="ammount"/>
     </p>
     <p>
         <input type="submit" value="Submit" />
