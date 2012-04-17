@@ -8,6 +8,8 @@ import play.db.jpa.Model;
 
 @Entity
 public class Bid extends Model {
+	
+	
 	public double offer;
 	public String email;
 

@@ -11,6 +11,8 @@ import play.db.jpa.Model;
 
 @Entity
 public class Auction extends Model{
+	
+	
 	@Required
 	public String name;
 	

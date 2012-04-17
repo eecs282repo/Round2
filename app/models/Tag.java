@@ -20,9 +20,6 @@ public class Tag extends Model implements Comparable<Tag> {
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	public List<Item> items;
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	public List<AssocWord> associated_words;
-	
 	public String toString(){
 		return name;
 	}
