@@ -1,3 +1,2 @@
 eclipse
-conf
-confbak
+conf/application.conf
