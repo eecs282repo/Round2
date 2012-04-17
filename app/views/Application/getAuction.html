@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+
+<p>You are viewing <strong>${auction?.name}</strong>.</p>
+<p>${auction?.description}</p>
+
+<ul>
+#{list auction.bids}
+<li>${_.offer}</li>
+#{/list}
+</ul>
+
+#{form @Shop.createBid(auction.id)}
+ 
+    #{ifErrors}
+        <p class="error">
+            Please input ammount
+        </p>
+    #{/ifErrors}
+    <p>
+        <label for="ammount">Make a offer: </label>
+        <input name="ammount" id="ammount"/>
+    </p>
+    <p>
+        <input type="submit" value="Submit" />
+    </p>
+#{/form}
+
+
+<div>
+TODO: For this page, make the bid add without page reload. Also make bids editable by just clicking the field.
+</div>

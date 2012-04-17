@@ -37,6 +37,11 @@ public class Application extends Controller {
 		List<Auction> auctions = Auction.findLatest();
 		render(auctions);
 	}
+	
+	public static void getAuction(Long id){
+		Auction auction = Auction.findById(id);
+		render(auction);
+	}
 
 	
 	

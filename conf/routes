@@ -4,10 +4,17 @@
 
 # Home page
 GET     /                                       Application.index
-GET		/rest/tweets							Application.tweets
-GET		/rest/albums							Application.albums
+
+# Display auctions
+GET		/auction/{id}							Application.getAuction
+
+# Shopping routes
 GET		/itemSearch								Shop.itemSearch
 GET		/shop									Shop.index
+
+# Making a bid
+POST	/makeBid/{id}/{ammount}					Shop.createBid
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

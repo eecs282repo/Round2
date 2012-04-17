@@ -6,6 +6,7 @@ import models.Auction;
 import models.Bid;
 import models.Item;
 import models.Tag;
+import play.data.validation.Required;
 import play.mvc.Controller;
 
 /**
@@ -35,10 +36,19 @@ public class Shop extends Controller {
 	/**
 	 * Creates a bid
 	 */
-	public static void createBid() {
+	public static void createBid(Long auction_id, @Required double ammount) {
+		Auction auction = Auction.findById(auction_id);
+		if(validation.hasErrors()) {
+			Application.getAuction(auction_id);
+		}
 		Bid bid = new Bid();
+		bid.offer = ammount;
+		bid.auction = auction;
 		bid.save();
-		render(bid);
+		
+		auction.bids.add(bid);
+		auction.save();
+		Application.getAuction(auction_id);
 	}
 	
 	/**
@@ -55,11 +65,11 @@ public class Shop extends Controller {
 		// TODO: Add spaces between the strings so that you can union stuff
 		
 		List<Item> items = Item.find("lower(name) like ?", '%' + q.toLowerCase() + '%').fetch();
-		if(items.size()==0){
-			Item e = new Item();
-			e.name = "Item not found";
-			items.add(e);
-		}
+//		if(items.size()==0){
+//			Item e = new Item();
+//			e.name = "Item not found";
+//			items.add(e);
+//		}
 		render(items);
 	}
 	

@@ -6,10 +6,9 @@
 
 <ul>
 #{list auctions}
-<li>${_.name} - ${_.description} </li>
+<li><a href="@{Application.getAuction(_.id)}">${_.name} - ${_.description} </a></li>
 #{/list}
 </ul>
-
 
 
 

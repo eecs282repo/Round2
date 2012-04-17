@@ -16,23 +16,21 @@ public class Auction extends Model{
 	@Required
 	public String name;
 	
+	@OneToMany(mappedBy="auction", cascade=CascadeType.ALL)
+	public List<Bid> bids;
 	
 	@ManyToMany
 	public List<Tag> tags;
 
-	@Required
 	@MaxSize(500)
 	public String description;
 	
-
 	@ManyToOne
 	public Item item;
 	
-	
 	@ManyToOne
 	public Account account;
-		
-	
+
 	public String image;
 
 	public static List<Auction> findLatest(){

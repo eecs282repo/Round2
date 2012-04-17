@@ -5,22 +5,42 @@
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" href="@{'/public/stylesheets/bootstrap.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         <script src="@{'/public/javascripts/sammy.js'}" type="text/javascript" ></script>
         #{get 'moreScripts' /}
     </head>
+    
+    
     <body>
-    <div>Welcome to <a href="/">A2 Exchange</a></div>
-    <p>An online freemarket built by Ann Arbor! We juiced up our server to the max to make your experience enjoyable. Why? Because we are local, we can, and we care about fellow Ann Arborian.</p>
-    <div>
-    <ul>
-    Menu
-    <li><a href="itemSearch">Item Search</a></li>
-    </ul>
-    <hr>
+    <div class="container">
+    
+
+
+    
+    <div class="container">
+        <p><h1>a<sup>2</sup>exchange</h1></p>
+	    
+	    <p>An online freemarket built by Ann Arbor!</p>
+	     
+	    <p>We juiced up our server to the max to make your experience enjoyable. 
+	    Why? Because we are local, we can, and we care about fellow Ann Arborian.</p>
     </div>
+    
+        <div class="navbar"><div class="navbar-inner"><div class="container">
+    <ul class="nav nav-pills">
+    	<li><a href="/">Home</a></li>
+    	<li><a href="/itemSearch">TODO Item Search</a></li>
+    	<li><a href="/">TODO Make an Auction</a></li>
+    	<li><a href="/explore">TODO Explore!</a></li>
+    </ul>
+    </div></div></div>
+    
+    
         #{doLayout /}
+        
+        </div>
     </body>
 </html>
