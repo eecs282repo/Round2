@@ -52,8 +52,14 @@ public class Shop extends Controller {
 	 * Searches for an item
 	 */
 	public static void searchItem(String q) {
-		// TODO: Renders the search result
+		// TODO: Add spaces between the strings so that you can union stuff
+		
 		List<Item> items = Item.find("lower(name) like ?", '%' + q.toLowerCase() + '%').fetch();
+		if(items.size()==0){
+			Item e = new Item();
+			e.name = "Item not found";
+			items.add(e);
+		}
 		render(items);
 	}
 	

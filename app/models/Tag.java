@@ -25,6 +25,7 @@ public class Tag extends Model implements Comparable<Tag> {
 	}
 
 	public static List<Tag> findByString(String q) {
+		q.trim();
 		List<Tag> result = Tag.find("name like %q", q).fetch();
 		if(result.isEmpty()){
 			result = Tag.find("associated_words like %q", q).fetch();

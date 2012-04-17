@@ -43,12 +43,10 @@ function lookup(inputString) {
 		});
 		
 		this.get('#/search', function(callback) {
-			this.log("Enter registered!");
 			var action = #{jsAction @searchItem(':itemName') /}
 			var name = $('#searchField').attr('value');
-			this.partial(action(name));
-			// var action = #{jsAction @searchItem(':itemName') /}
-			// var q = this.params['query'];			
+			this.log("Enter registered!" + name);
+			this.partial(action(name));	
 		});
 		
 

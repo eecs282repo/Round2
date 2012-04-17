@@ -24,7 +24,7 @@ public class Item extends Model{
 	public double average_price;
 	
 	@ManyToMany(cascade = {CascadeType.ALL})
-	public List<Tag> categories;
+	public List<Tag> tags;
 	
 	public String toString(){
 		return name;
