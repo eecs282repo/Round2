@@ -1,17 +1,40 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-Search for an item: 
-<form action="#/search" method="GET">
-<input onkeyup="lookup(this.value)" id="searchField"></input>
 
-</form>
-
-<div id="main">
-
-
+<div class="row">
+	<div class="span4">
+		What would you like to find? 
+		<form action="#/search" method="GET">
+			<input onkeyup="lookup(this.value)" id="searchField"></input>
+		</form>
+		<h3>Tags</h3>
+		<div id="tags">
+		</div>
+	</div>
+	
+	
+	
+	<div class="span8">
+		<h3>Auctions</h3>
+		<div id="auctions">
+		</div>
+	</div>
+		
+</div>
+<hr>
+<div class="row">
+	<div class="span12">
+	<h3>TODO</h3>
+	<ul>
+	<li>Well, this page has to have items loaded</li>
+	
+	</ul>
+	
+	</div>
 
 </div>
+
 
 <script>
 
@@ -19,22 +42,27 @@ function lookup(inputString) {
 	if(inputString.length == 0) {
 		$('#suggestions').fadeOut(); // Hide the suggestions box
 	} else {
-		var action = #{jsAction @searchItem(':itemName') /}
-	   $('#main').load(
+		var action = #{jsAction @searchAuction(':itemName') /}
+	   $('#auctions').load(
 	       action({itemName : inputString}), 
 	       function() {
-	           $('#main').css('visibility', 'visible')
+	           $('#auctions').css('visibility', 'visible')
+	       }
+	   );
+		var tagAction = #{jsAction @searchTag(':itemName') /}
+	   $('#tags').load(
+	       tagAction({itemName : inputString}), 
+	       function() {
+	           $('#tags').css('visibility', 'visible')
 	       }
 	   );
 	}
 }
 
+/* 
 (function($){
 	
-	var app = $.sammy('#main', function(){
-		
-		var thisApp = app;
-		
+	var app = $.sammy('#auctions', function(){
 		this.get('#/', function(callback) {
 			this.log("Started!");
 		});
@@ -48,15 +76,28 @@ function lookup(inputString) {
 		
 
 	});
+	var tags = $.sammy('#tags', function(){
+		this.get('#/', function(callback) {
+			this.log("Started!");
+		});
+		
+		this.get('#/search', function(callback) {
+			var action = #{jsAction @searchTag(':itemName') /}
+			var name = $('#searchField').attr('value');
+			this.log("Enter registered!" + name);
+			this.partial(action(name));	
+		});
+	})
 	
 	$(function(){
 		app.run('#/');
+		tags.run('#/');
 	});
 	
 	
 	
 })(jQuery);
-
+ */
 
 
 </script>

@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div class="row">
+<div class="span-12">
+<p></p>
+<p>You are viewing <strong>${tag?.name}</strong>.</p>
+
+<ul>
+#{list tag.auctions}
+<li><a href="@{Auctions.view(_.id)}"><strong>${_.name} </strong> - ${_.description} </a></li>
+#{/list}
+</ul>
+
+
+
+</div>
+
+</div>
+
+<div class="row">
+<hr>
+<div class="span-12">
+<h3>TODO</h3>
+</div>
+
+</div>

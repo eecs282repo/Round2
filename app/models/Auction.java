@@ -20,7 +20,7 @@ public class Auction extends Model{
 	@OneToMany(mappedBy="auction", cascade=CascadeType.ALL)
 	public List<Bid> bids;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade=CascadeType.PERSIST)
 	public Set<Tag> tags;
 
 	@MaxSize(500)

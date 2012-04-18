@@ -38,7 +38,7 @@ public class Application extends Controller {
 	 */
 	public static void index() {
 		List<Auction> auctions = Auction.findLatest();
-		List<Tag> tags = Tag.findPopular(20);
+		List<Tag> tags = Tag.findPopular(15);
 		render(tags, auctions);
 	}
 

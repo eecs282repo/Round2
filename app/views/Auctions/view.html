@@ -2,7 +2,7 @@
 #{set title:'Home' /}
 
 #{list auction?.tags}
-	<a style="margin:5px"href="/" class="btn">
+	<a style="margin:5px"href="@{Tags.view(_.id)}" class="btn">
 	<i class="icon-tag"></i>
 	${_.name}
 	</a>

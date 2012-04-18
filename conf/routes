@@ -7,13 +7,19 @@ GET     /                                       Application.index
 
 
 # Crud
-*      /admin              module:crud
+*      /admin            						module:crud
 
 # Display auctions
-GET		/view/auction/{id}							Auctions.view
+GET		/view/auction/{id}						Auctions.view
 
 # Shopping routes
 GET		/search/items							Shop.itemSearch
+GET		/explore								Shop.explore
+
+#
+Get 	/view/tag/{id}							Tags.view
+
+# This is kinda wtf
 GET		/shop									Shop.index
 
 # Make a bid

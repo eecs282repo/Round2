@@ -5,7 +5,7 @@
 <h3>Popular Tags</h3>
 #{list tags}
 
-<a style="margin:5px"href="/" class="btn">
+<a style="margin:5px 3px "href="@{Tags.view(_.id)}" class="btn">
 <i class="icon-tag"></i>
 ${_.name}
 </a>
@@ -20,10 +20,17 @@ ${_.name}
 <h3>Recent Auctions</h3>
 <ul>
 #{list auctions}
-<li><a href="@{Auctions.view(_.id)}">${_.name} - ${_.description} </a></li>
+<li><a href="@{Auctions.view(_.id)}"><strong>${_.name} </strong> - ${_.description} </a></li>
 #{/list}
 </ul>
 </div>
+
+
+</div> <!--  First row -->
+
+
+<div class="row">
+<hr>
 
 <div class="span4">
 <h3>TODO</h3>
@@ -33,11 +40,6 @@ ${_.name}
 <li>Make the explore page</li>
 </ul>
 </div>
-
-</div> <!--  First row -->
-
-
-<div class="row">
 
 </div>
 

@@ -37,15 +37,20 @@ public class Shop extends Controller {
 	 */
 	public static void searchItem(String q) {
 		// TODO: Add spaces between the strings so that you can union stuff
-		
 		List<Item> items = Item.find("lower(name) like ?", '%' + q.toLowerCase() + '%').fetch();
-//		if(items.size()==0){
-//			Item e = new Item();
-//			e.name = "Item not found";
-//			items.add(e);
-//		}
 		render(items);
 	}
+	
+	public static void searchTag(String q) {
+		List<Tag> tags = Tag.find("lower(name) like ?", '%' + q.toLowerCase() + '%').fetch();
+		render(tags);
+	}
+	public static void searchAuction(String q) {
+		// TODO: Add spaces between the strings so that you can union stuff
+		List<Auction> auctions = Auction.find("lower(name) like ?", '%' + q.toLowerCase() + '%').fetch();
+		render(auctions);
+	}
+	
 	
 	/**
 	 * Search for category based on input string, SQL "WHERE category.name LIKE searchString"
