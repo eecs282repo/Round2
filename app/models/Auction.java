@@ -28,9 +28,11 @@ public class Auction extends Model{
 	
 	@ManyToOne
 	public Item item;
-	
+/*
 	@ManyToOne
 	public Account account;
+*/
+	public String email;
 
 	public String image;
 	

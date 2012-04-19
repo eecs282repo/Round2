@@ -30,9 +30,9 @@ public class Auctions extends CRUD {
 	 * @param description
 	 * @param image
 	 * @param price
+	 * @param email
 	 */
-	public static void save(@Required String name, String tags, 
-			@Required String description, String image, double price) {
+	public static void save(@Required String name, String tags,String email, 		@Required String description, String image, double price) {
 		
 		Auction auction = new Auction();
 		auction.name = name;
@@ -40,6 +40,7 @@ public class Auctions extends CRUD {
 		auction.price = price;
 		auction.image = image;
 		auction.tags = new TreeSet<Tag>();
+		auction.email = email;
 		
 		String[] tagsArray = tags.split(",");
 		for(String tagstring : tagsArray){

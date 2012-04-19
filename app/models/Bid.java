@@ -13,16 +13,17 @@ public class Bid extends Model {
 	public double offer;
 	public String email;
 
-	@ManyToOne
-	public Account account;
-	
 	@OneToMany(mappedBy="bid", cascade=CascadeType.ALL)
 	public List<Message> messages;
 	
 	@ManyToOne
 	public Auction auction;
+	/*
+	@ManyToOne
+	public Account account;
+	*/
 	
 	public String toString(){
-		return "$"+offer;
+		return "$"+offer + "  Contact: " + email;
 	}
 }

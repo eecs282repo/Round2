@@ -14,12 +14,13 @@
 
 <p>${auction?.description}</p>
 <p>Merchant asks for: $${auction?.price}</p>
+<p>Contact this seller @ $${auction?.email}</p>
 <hr>
 
 <p>Offers</p>
 <ul>
 #{list auction?.bids}
-<li>$${_.offer}</li>
+<li>$${_.toString()}</li>
 #{/list}
 </ul>
 
@@ -35,6 +36,8 @@
     <p>
         <label for="ammount">Make an offer: </label>
         $&nbsp;<input name="ammount" id="ammount"/>
+	<label for="email">Email Address: </label>
+	<input name="email" id="email">
     </p>
     <p>
         <input type="submit" value="Submit" />
